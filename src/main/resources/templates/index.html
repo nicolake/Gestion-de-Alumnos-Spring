@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Personas</title>
+</head>
+<body>
+<div class="container">
+    <div>
+        <a href="/save/null" class="btn btn-primary">Agregar</a>
+    </div>
+    <div th:switch="${list}">
+        <div th:case="*">
+            <h2>Personas</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Tipo de Documento</th>
+                    <th>Numero de Documento</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="persona : ${list}">
+                    <td th:text="${persona.nombre}"></td>
+                    <td th:text="${persona.apellido}"></td>
+                    <td th:text="${persona.tipodoc}"></td>
+                    <td th:text="${persona.documento}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

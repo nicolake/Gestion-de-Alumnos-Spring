@@ -33,6 +33,8 @@ public class Persona {
         this.tipodoc = tipodoc;
     }
 
+    public Persona(){}
+
     public int getIdentificador() {
         return identificador;
     }
