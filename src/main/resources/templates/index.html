@@ -12,7 +12,7 @@
     </div>
     <div th:switch="${list}">
         <div th:case="*">
-            <h2>Personas</h2>
+            <h2>Alumnos</h2>
             <table class="table">
                 <thead>
                 <tr>
@@ -20,6 +20,7 @@
                     <th>Apellido</th>
                     <th>Tipo de Documento</th>
                     <th>Numero de Documento</th>
+                    <th>Legajo</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,7 @@
                     <td th:text="${persona.apellido}"></td>
                     <td th:text="${persona.tipodoc}"></td>
                     <td th:text="${persona.documento}"></td>
+                    <td th:text="${persona.legajo}"></td>
                 </tr>
                 </tbody>
             </table>

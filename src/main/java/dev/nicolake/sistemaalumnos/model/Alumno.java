@@ -19,4 +19,12 @@ public class Alumno extends Persona{
     }
 
     public Alumno(){}
+
+    public int getLegajo() {
+        return legajo;
+    }
+
+    public void setLegajo(int legajo) {
+        this.legajo = legajo;
+    }
 }
