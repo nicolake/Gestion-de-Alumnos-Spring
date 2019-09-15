@@ -173,3 +173,6 @@ ALTER SEQUENCE persona_id_seq OWNED BY persona.identificador;
 
 ALTER TABLE alumno ALTER identificador SET DEFAULT nextval('alumno_id_seq');
 ALTER SEQUENCE alumno_id_seq OWNED BY alumno.identificador;
+
+alter table inscripciones_curso add column nota DECIMAL default 0;
+alter table curso add column iddocente integer REFERENCES persona (identificador);

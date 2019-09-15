@@ -14,20 +14,20 @@ public class Persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer identificador;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String nombre;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String apellido;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private long documento;
 
-    @Column (nullable=false)
+    @Column(nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechanac;
 
-    @Column (nullable=false)
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TipoDocumento tipodoc;
 
@@ -39,7 +39,8 @@ public class Persona {
         this.tipodoc = tipodoc;
     }
 
-    public Persona(){}
+    public Persona() {
+    }
 
     public Integer getIdentificador() {
         return identificador;
@@ -89,7 +90,7 @@ public class Persona {
         this.tipodoc = tipodoc;
     }
 
-    public String fechaNacimientoFormat(){
+    public String fechaNacimientoFormat() {
         return fechanac.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
     }
 }
