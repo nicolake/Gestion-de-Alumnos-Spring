@@ -165,3 +165,11 @@ INSERT INTO inscripciones_curso VALUES
 INSERT INTO inscripciones_curso VALUES
 (2,6,'2011-01-01');
 
+CREATE SEQUENCE persona_id_seq MINVALUE 6;
+CREATE SEQUENCE alumno_id_seq MINVALUE 6;
+
+ALTER TABLE persona ALTER identificador SET DEFAULT nextval('persona_id_seq');
+ALTER SEQUENCE persona_id_seq OWNED BY persona.identificador;
+
+ALTER TABLE alumno ALTER identificador SET DEFAULT nextval('alumno_id_seq');
+ALTER SEQUENCE alumno_id_seq OWNED BY alumno.identificador;

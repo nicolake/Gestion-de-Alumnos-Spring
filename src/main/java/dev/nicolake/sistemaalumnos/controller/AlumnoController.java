@@ -23,9 +23,11 @@ public class AlumnoController {
     }
 
     @GetMapping("/save/{identificador}")
-    public String showSave(@PathVariable("identificador") Integer id, Model model) {
-        if (id != null) {
-            model.addAttribute("persona", alumnoServiceAPI.get(id));
+    public String showSave(@PathVariable("identificador") Integer identificador, Model model) {
+        if (identificador != null && identificador != 0) {
+            model.addAttribute("alumno", alumnoServiceAPI.get(identificador));
+        } else {
+            model.addAttribute("alumno", new Alumno());
         }
 
         return "save";

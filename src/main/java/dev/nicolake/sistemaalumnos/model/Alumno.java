@@ -1,13 +1,15 @@
 package dev.nicolake.sistemaalumnos.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "idpersona")
 public class Alumno extends Persona{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer identificador;
 
     @Column(nullable=false)
     private int legajo;
@@ -26,5 +28,14 @@ public class Alumno extends Persona{
 
     public void setLegajo(int legajo) {
         this.legajo = legajo;
+    }
+
+    @Override
+    public Integer getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(Integer identificador) {
+        this.identificador = identificador;
     }
 }

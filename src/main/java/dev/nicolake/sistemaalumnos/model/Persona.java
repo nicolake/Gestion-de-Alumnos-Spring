@@ -1,13 +1,17 @@
 package dev.nicolake.sistemaalumnos.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Persona {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer identificador;
 
     @Column(nullable=false)
@@ -20,6 +24,7 @@ public class Persona {
     private long documento;
 
     @Column (nullable=false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechanac;
 
     @Column (nullable=false)
@@ -36,7 +41,7 @@ public class Persona {
 
     public Persona(){}
 
-    public int getIdentificador() {
+    public Integer getIdentificador() {
         return identificador;
     }
 
@@ -82,5 +87,9 @@ public class Persona {
 
     public void setTipodoc(TipoDocumento tipodoc) {
         this.tipodoc = tipodoc;
+    }
+
+    public String fechaNacimientoFormat(){
+        return fechanac.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
     }
 }
