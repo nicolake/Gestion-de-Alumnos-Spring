@@ -1,31 +1,32 @@
 package dev.nicolake.sistemaalumnos.model;
 
 import javax.persistence.*;
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer identificador;
 
-    @Column
+    @Column(nullable=false)
     private String nombre;
 
-    @Column
+    @Column(nullable=false)
     private String apellido;
 
-    @Column
+    @Column(nullable=false)
     private long documento;
 
-    @Column
-    private LocalTime fechanac;
+    @Column (nullable=false)
+    private LocalDate fechanac;
 
+    @Column (nullable=false)
     @Enumerated(EnumType.STRING)
     private TipoDocumento tipodoc;
 
-    public Persona(int identificador, String nombre, String apellido, long documento, LocalTime fechanac, TipoDocumento tipodoc) {
-        this.identificador = identificador;
+    public Persona(String nombre, String apellido, long documento, LocalDate fechanac, TipoDocumento tipodoc) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.documento = documento;
@@ -67,11 +68,11 @@ public class Persona {
         this.documento = documento;
     }
 
-    public LocalTime getFechanac() {
+    public LocalDate getFechanac() {
         return fechanac;
     }
 
-    public void setFechanac(LocalTime fechanac) {
+    public void setFechanac(LocalDate fechanac) {
         this.fechanac = fechanac;
     }
 
