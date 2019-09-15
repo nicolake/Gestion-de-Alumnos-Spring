@@ -93,4 +93,9 @@ public class Persona {
     public String fechaNacimientoFormat() {
         return fechanac.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
     }
+
+    @Override
+    public String toString(){
+        return nombre + " " + apellido;
+    }
 }

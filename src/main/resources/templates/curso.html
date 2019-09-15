@@ -3,7 +3,7 @@
 <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
 <head>
     <meta charset="UTF-8">
-    <title>Alumnos</title>
+    <title>Cursos</title>
 </head>
 <body>
 <div class="container">
@@ -19,9 +19,12 @@
         </ul>
     </nav>
     <div class="alert alert-danger" role="alert" th:if="${list.isEmpty()}">
-        No hay Alumnos!
+        No hay inscriptos!
     </div>
     <div th:if="${!list.isEmpty()}">
+    <div>
+        <h3>Docente: <span th:text="${list[0].curso.docente}"></span></h3>
+    </div>
         <table class="table">
             <thead>
             <tr>
@@ -29,25 +32,22 @@
                 <th>Apellido</th>
                 <th>Tipo de Documento</th>
                 <th>Numero de Documento</th>
-                <th>Fecha de Nacimiento</th>
+                <th>Fecha de inscripcion</th>
                 <th>Legajo</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="alumno : ${list}">
-                <td th:text="${alumno.nombre}"></td>
-                <td th:text="${alumno.apellido}"></td>
-                <td th:text="${alumno.tipodoc.displayValue}"></td>
-                <td th:text="${alumno.documento}"></td>
-                <td th:text="${alumno.fechaNacimientoFormat()}"></td>
-                <td th:text="${alumno.legajo}"></td>
-                <td><a class="btn btn-info" th:href="@{/save/{id}(id=${alumno.identificador})}">Editar</a></td>
+            <tr th:each="inscripcion : ${list}">
+                <td th:text="${inscripcion.alumno.nombre}"></td>
+                <td th:text="${inscripcion.alumno.apellido}"></td>
+                <td th:text="${inscripcion.alumno.tipodoc.displayValue}"></td>
+                <td th:text="${inscripcion.alumno.documento}"></td>
+                <td th:text="${inscripcion.fechainscripcion}"></td>
+                <td th:text="${inscripcion.alumno.legajo}"></td>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
-
 </body>
 </html>

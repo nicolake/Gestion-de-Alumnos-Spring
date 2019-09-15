@@ -20,11 +20,11 @@ public class Carrera {
     @Column
     private String descripcion;
 
-    @Column(nullable = false)
+    @Column(name = "fechadesde", nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaDesde;
 
-    @Column
+    @Column(name = "fechahasta")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechahasta;
 

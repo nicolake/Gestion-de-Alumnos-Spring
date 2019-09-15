@@ -38,6 +38,14 @@ public class Curso {
         this.anio = anio;
     }
 
+    public Persona getDocente() {
+        return docente;
+    }
+
+    public void setDocente(Persona docente) {
+        this.docente = docente;
+    }
+
     public Integer getIdentificador() {
         return identificador;
     }

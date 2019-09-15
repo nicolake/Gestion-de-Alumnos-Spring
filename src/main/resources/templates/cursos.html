@@ -3,46 +3,42 @@
 <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
 <head>
     <meta charset="UTF-8">
-    <title>Alumnos</title>
+    <title>Cursos</title>
 </head>
 <body>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <h1 class="navbar-brand">Sistema Alumnos</h1>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/">Alumnos</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/cursos">Cursos</a>
             </li>
         </ul>
     </nav>
     <div class="alert alert-danger" role="alert" th:if="${list.isEmpty()}">
-        No hay Alumnos!
+        No hay Cursos!
     </div>
     <div th:if="${!list.isEmpty()}">
         <table class="table">
             <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Tipo de Documento</th>
-                <th>Numero de Documento</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Legajo</th>
+                <th>Descripcion</th>
+                <th>Cupo Maximo</th>
+                <th>Año</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="alumno : ${list}">
-                <td th:text="${alumno.nombre}"></td>
-                <td th:text="${alumno.apellido}"></td>
-                <td th:text="${alumno.tipodoc.displayValue}"></td>
-                <td th:text="${alumno.documento}"></td>
-                <td th:text="${alumno.fechaNacimientoFormat()}"></td>
-                <td th:text="${alumno.legajo}"></td>
-                <td><a class="btn btn-info" th:href="@{/save/{id}(id=${alumno.identificador})}">Editar</a></td>
+            <tr th:each="Curso : ${list}">
+                <td th:text="${Curso.nombre}"></td>
+                <td th:text="${Curso.descripcion}"></td>
+                <td th:text="${Curso.cupomaximo}"></td>
+                <td th:text="${Curso.anio}"></td>
+                <td><a class="btn btn-info" th:href="@{/curso/{id}(id=${Curso.identificador})}">Detalle</a></td>
             </tr>
             </tbody>
         </table>

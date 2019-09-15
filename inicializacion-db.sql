@@ -176,3 +176,25 @@ ALTER SEQUENCE alumno_id_seq OWNED BY alumno.identificador;
 
 alter table inscripciones_curso add column nota DECIMAL default 0;
 alter table curso add column iddocente integer REFERENCES persona (identificador);
+
+INSERT INTO persona VALUES
+    (7,'DNI', 14112872, 'Jorge', 'Martinez', '1971-12-13');
+
+
+INSERT INTO persona VALUES
+    (8,'DNI', 14112872, 'Leandro', 'Ramirez', '1972-10-03');
+
+
+INSERT INTO persona VALUES
+    (9,'DNI', 14112872, 'Luis', 'Artusi', '1928-11-04');
+
+
+INSERT INTO persona VALUES
+    (10,'CIVIC', 4112888, 'Jazmin', 'Lopez', '1948-01-03');
+
+UPDATE curso SET iddocente = 7 WHERE identificador = 1;
+UPDATE curso SET iddocente = 8 WHERE identificador = 2;
+UPDATE curso SET iddocente = 9 WHERE identificador = 3;
+UPDATE curso SET iddocente = 10 WHERE identificador = 4;
+UPDATE curso SET iddocente = 7 WHERE identificador = 5;
+UPDATE curso SET iddocente = 10 WHERE identificador = 6;

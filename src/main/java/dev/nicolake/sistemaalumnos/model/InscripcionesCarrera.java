@@ -5,8 +5,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity(name = "inscrpciones_carrera")
+@Entity(name = "inscripciones_carrera")
 public class InscripcionesCarrera {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer identificador;
 
     @ManyToOne
     @JoinColumn(name = "idalumno", nullable = false)
