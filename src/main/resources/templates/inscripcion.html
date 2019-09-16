@@ -18,7 +18,7 @@
             <label>Curso</label>
             <select name="curso" th:field="*{curso}">
                 <option th:each="curso : ${cursos}"
-                        th:value="${curso}"
+                        th:value="${curso.identificador}"
                         th:text="${curso.nombre}">
                 </option>
             </select>

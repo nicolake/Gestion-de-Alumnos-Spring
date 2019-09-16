@@ -20,3 +20,7 @@ Spring boot + postgresql + thymeleaf + intelliJ IDEA
 1. Correr el script SQL.
 2. Editar el archivo application.properties con los datos de la base de datos.
 3. Ejecturar y entrar al navegador a localhost:8080
+
+### Docker
+1. generar la imagen de docker: ./mvnw install dockerfile:build
+2. Para correr la imagen: docker run -p 8080:8080 -t nicolake/sistema-alumnos:latest

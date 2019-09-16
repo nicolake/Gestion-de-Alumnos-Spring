@@ -78,4 +78,12 @@ public class InscripcionesCurso {
 
         return resultado;
     }
+
+    public AlumnoCurso getAlumnocurso() {
+        return alumnocurso;
+    }
+
+    public void setAlumnocurso(AlumnoCurso alumnocurso) {
+        this.alumnocurso = alumnocurso;
+    }
 }

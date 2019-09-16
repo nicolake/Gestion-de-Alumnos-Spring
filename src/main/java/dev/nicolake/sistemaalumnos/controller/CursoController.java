@@ -62,6 +62,7 @@ public class CursoController {
     @PostMapping("/inscripto")
     public String save(@ModelAttribute InscripcionesCurso inscripcionCurso, Model model) {
         inscripcionCurso.setFechainscripcion(LocalDate.now());
+        inscripcionCurso.setAlumnocurso(new AlumnoCurso(inscripcionCurso.getAlumno().getIdentificador(), inscripcionCurso.getCurso().getIdentificador()));
         inscripcionCurso.setNota(0);
         inscripcionesCursoServiceAPI.save(inscripcionCurso);
         return "redirect:/";
