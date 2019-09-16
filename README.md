@@ -12,3 +12,11 @@ Desarrollar una aplicación, puede ser en cualquier lenguaje y tanto una aplicac
     - Para una asignatura(curso) dado, los alumnos inscriptos y el docente correspondiente.
 3. Permita a un alumno inscribirse a una materia.
 (para esto se deberán realizar los cambios que crean convenientes en el modelo de datos provisto en el paso 1)
+
+### Descripcion
+Spring boot + postgresql + thymeleaf + intelliJ IDEA
+
+### Instrucciones
+1. Correr el script SQL.
+2. Editar el archivo application.properties con los datos de la base de datos.
+3. Ejecturar y entrar al navegador a localhost:8080
