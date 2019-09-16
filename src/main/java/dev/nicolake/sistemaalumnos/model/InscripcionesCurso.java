@@ -59,4 +59,17 @@ public class InscripcionesCurso {
     public void setNota(double nota) {
         this.nota = nota;
     }
+
+    public String getEstado() {
+        String resultado;
+        if (nota == 0) {
+            resultado = "En Curso";
+        } else if (nota < 6) {
+            resultado = "Desaprobado";
+        } else {
+            resultado = "Aprobado";
+        }
+
+        return resultado;
+    }
 }

@@ -32,6 +32,7 @@
                 <th>Fecha de Nacimiento</th>
                 <th>Legajo</th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -43,6 +44,7 @@
                 <td th:text="${alumno.fechaNacimientoFormat()}"></td>
                 <td th:text="${alumno.legajo}"></td>
                 <td><a class="btn btn-info" th:href="@{/save/{id}(id=${alumno.identificador})}">Editar</a></td>
+                <td><a class="btn btn-info" th:href="@{/{id}(id=${alumno.identificador})}">Reporte</a></td>
             </tr>
             </tbody>
         </table>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alumno</title>
+
+    <link href="../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Agregar Alumno</h2>
+    <form action="#" th:action="@{/save}" th:object="${alumno}"
+          method="post">
+        <div class="form-group">
+            <label for="nombre">Nombre</label> <input type="text"
+                                                      class="form-control" id="nombre" th:field="*{nombre}"
+                                                      name="nombre">
+        </div>
+        <input type="hidden" th:field="*{identificador}" th:value="*{identificador}" name="identificador"
+               id="identificador">
+        <div class="form-group">
+            <label for="nombre">Apellido</label> <input type="text"
+                                                        class="form-control" id="apellido" th:field="*{apellido}"
+                                                        name="apellido">
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Tipo de documento</label>
+            <select name="tipoDocumento" th:field="*{tipodoc}">
+                <option th:each="tipodoc : ${T(dev.nicolake.sistemaalumnos.model.TipoDocumento).values()}"
+                        th:value="${tipodoc}"
+                        th:selected="${tipodoc == T(dev.nicolake.sistemaalumnos.model.TipoDocumento)}"
+                        th:text="${tipodoc.displayValue}">
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Numero de Documento</label> <input type="number"
+                                                                   class="form-control" id="documento"
+                                                                   th:field="*{documento}"
+                                                                   name="documento">
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Legajo</label> <input type="number"
+                                                      class="form-control" id="legajo" th:field="*{legajo}"
+                                                      name="legajo">
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Fecha de nacimiento</label> <input type="date" th:value="*{fechanac}"
+                                                                   th:field="*{fechanac}"/>
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+</div>
+</body>
+</html>

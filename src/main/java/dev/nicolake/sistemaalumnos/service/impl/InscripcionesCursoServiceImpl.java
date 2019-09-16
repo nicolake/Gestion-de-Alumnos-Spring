@@ -2,6 +2,7 @@ package dev.nicolake.sistemaalumnos.service.impl;
 
 import dev.nicolake.sistemaalumnos.commons.GenericServiceImpl;
 import dev.nicolake.sistemaalumnos.dao.api.InscripcionesCursoDaoAPI;
+import dev.nicolake.sistemaalumnos.model.Alumno;
 import dev.nicolake.sistemaalumnos.model.Curso;
 import dev.nicolake.sistemaalumnos.model.InscripcionesCurso;
 import dev.nicolake.sistemaalumnos.service.api.InscripcionesCursoServiceAPI;
@@ -19,9 +20,15 @@ public class InscripcionesCursoServiceImpl extends GenericServiceImpl<Inscripcio
     private InscripcionesCursoDaoAPI cursoDaoAPI;
 
     public List<InscripcionesCurso> getInscripcionesPorCurso(Curso curso) {
-
         List<InscripcionesCurso> result = new ArrayList<>();
-        cursoDaoAPI.findByCurso(curso).forEach(obj-> result.add(obj));
+        cursoDaoAPI.findByCurso(curso).forEach(obj -> result.add(obj));
+        return result;
+    }
+
+    @Override
+    public List<InscripcionesCurso> getInscripcionesPorAlumno(Alumno alumno) {
+        List<InscripcionesCurso> result = new ArrayList<>();
+        cursoDaoAPI.findByAlumno(alumno).forEach(obj -> result.add(obj));
         return result;
     }
 
