@@ -20,7 +20,7 @@ public class Curso {
     @Column(nullable = false)
     private int anio;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idcarrera", nullable = false)
     private Carrera carrera;
 

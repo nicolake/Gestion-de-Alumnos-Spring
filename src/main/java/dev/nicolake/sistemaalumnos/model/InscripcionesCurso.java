@@ -4,6 +4,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 @Entity(name = "inscripciones_curso")
 public class InscripcionesCurso {
@@ -54,6 +56,10 @@ public class InscripcionesCurso {
 
     public double getNota() {
         return nota;
+    }
+
+    public String fechaInscripcionFormat() {
+        return fechainscripcion.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
     }
 
     public void setNota(double nota) {

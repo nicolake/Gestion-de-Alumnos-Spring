@@ -19,6 +19,7 @@ public class InscripcionesCursoServiceImpl extends GenericServiceImpl<Inscripcio
     @Autowired
     private InscripcionesCursoDaoAPI cursoDaoAPI;
 
+    @Override
     public List<InscripcionesCurso> getInscripcionesPorCurso(Curso curso) {
         List<InscripcionesCurso> result = new ArrayList<>();
         cursoDaoAPI.findByCurso(curso).forEach(obj -> result.add(obj));

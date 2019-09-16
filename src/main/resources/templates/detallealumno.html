@@ -57,7 +57,7 @@
             <tr th:each="inscripcionCarrera : ${carreras}">
                 <td th:text="${inscripcionCarrera.carrera.nombre}"></td>
                 <td th:text="${inscripcionCarrera.carrera.descripcion}"></td>
-                <td th:text="${inscripcionCarrera.fechainscripcion}"></td>
+                <td th:text="${inscripcionCarrera.fechaInscripcionFormat()}"></td>
             </tr>
             </tbody>
         </table>
@@ -81,8 +81,8 @@
                 <td th:text="${inscripcion.Curso.descripcion}"></td>
                 <td th:text="${inscripcion.Curso.cupomaximo}"></td>
                 <td th:text="${inscripcion.Curso.anio}"></td>
-                <td th:text="${inscripcion.fechainscripcion}"></td>
-                <td th:text="${inscripcion.getEstado}"></td>
+                <td th:text="${inscripcion.fechaInscripcionFormat()}"></td>
+                <td th:text="${inscripcion.getEstado()}"></td>
             </tr>
             </tbody>
         </table>

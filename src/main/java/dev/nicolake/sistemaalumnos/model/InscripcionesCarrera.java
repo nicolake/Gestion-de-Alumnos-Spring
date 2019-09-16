@@ -4,6 +4,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 @Entity(name = "inscripciones_carrera")
 public class InscripcionesCarrera {
@@ -51,6 +53,10 @@ public class InscripcionesCarrera {
 
     public LocalDate getFechainscripcion() {
         return fechainscripcion;
+    }
+
+    public String fechaInscripcionFormat() {
+        return fechainscripcion.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM));
     }
 
     public void setFechainscripcion(LocalDate fechainscripcion) {

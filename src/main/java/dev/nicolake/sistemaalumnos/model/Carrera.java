@@ -29,7 +29,7 @@ public class Carrera {
     private LocalDate fechahasta;
 
     @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
+            fetch = FetchType.LAZY,
             mappedBy = "carrera")
     private Set<Curso> cursos = new HashSet<>();
 
