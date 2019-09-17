@@ -165,15 +165,6 @@ INSERT INTO inscripciones_curso VALUES
 INSERT INTO inscripciones_curso VALUES
 (2,6,'2011-01-01');
 
-CREATE SEQUENCE persona_id_seq MINVALUE 6;
-CREATE SEQUENCE alumno_id_seq MINVALUE 6;
-
-ALTER TABLE persona ALTER identificador SET DEFAULT nextval('persona_id_seq');
-ALTER SEQUENCE persona_id_seq OWNED BY persona.identificador;
-
-ALTER TABLE alumno ALTER identificador SET DEFAULT nextval('alumno_id_seq');
-ALTER SEQUENCE alumno_id_seq OWNED BY alumno.identificador;
-
 alter table inscripciones_curso add column nota DECIMAL default 0;
 alter table curso add column iddocente integer REFERENCES persona (identificador);
 
@@ -198,3 +189,12 @@ UPDATE curso SET iddocente = 9 WHERE identificador = 3;
 UPDATE curso SET iddocente = 10 WHERE identificador = 4;
 UPDATE curso SET iddocente = 7 WHERE identificador = 5;
 UPDATE curso SET iddocente = 10 WHERE identificador = 6;
+
+CREATE SEQUENCE persona_id_seq MINVALUE 10;
+CREATE SEQUENCE alumno_id_seq MINVALUE 6;
+
+ALTER TABLE persona ALTER identificador SET DEFAULT nextval('persona_id_seq');
+ALTER SEQUENCE persona_id_seq OWNED BY persona.identificador;
+
+ALTER TABLE alumno ALTER identificador SET DEFAULT nextval('alumno_id_seq');
+ALTER SEQUENCE alumno_id_seq OWNED BY alumno.identificador;
